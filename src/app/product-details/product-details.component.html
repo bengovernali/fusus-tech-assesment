@@ -1,3 +1,8 @@
-<mat-card>
-  <img mat-card-img src="{{ product.image_url.replace('x.png', '200x300') }}" />
-</mat-card>
+<div class="container">
+  <mat-card>
+    <img mat-card-img src="{{ data.image_url.replace('x.png', '200x300') }}" />
+    <mat-card-title>{{ data.title }}</mat-card-title>
+    <mat-card-subtitle>Price: {{ data.price | currency }}</mat-card-subtitle>
+    <mat-card-content> {{ data.description }} </mat-card-content>
+  </mat-card>
+</div>
