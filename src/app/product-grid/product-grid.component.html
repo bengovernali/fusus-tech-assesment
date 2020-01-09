@@ -9,7 +9,7 @@
 
 <div class="container">
   <mat-card class="dvd" *ngFor="let product of products | async">
-    <a [title]="product.title" [routerLink]="['/products', productId]"
+    <a [title]="product.title" [routerLink]="['/products', product.id]"
       ><img
         mat-card-image
         src="{{ product.image_url.replace('x.png', '200x300') }}"

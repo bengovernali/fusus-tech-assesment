@@ -9,7 +9,6 @@ import { ProductService } from "../product.service";
   styleUrls: ["./product-details.component.css"]
 })
 export class ProductDetailsComponent implements OnInit {
-  product;
   id;
 
   constructor(
@@ -19,6 +18,6 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("productId");
-    this.product = this.productService.getProductById(this.id);
+    console.log("ID IS: ", this.id);
   }
 }
