@@ -1,0 +1,7 @@
+<div class="container">
+  <h2>DVDs</h2>
+
+  <div class="dvd" *ngFor="let product of products | async">
+    <img src="{{ product.image_url }}" alt="{{ product.title }}" />
+  </div>
+</div>
