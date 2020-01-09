@@ -10,14 +10,16 @@ import { ProductService } from "../product.service";
 })
 export class ProductDetailsComponent implements OnInit {
   id;
+  data: any = {};
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService
   ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("productId");
-    console.log("ID IS: ", this.id);
+    this.data = await this.productService.getProductById(this.id);
+    console.log(this.data);
   }
 }

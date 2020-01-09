@@ -6,12 +6,16 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root"
 })
 export class ProductService {
+  products: any = [];
+
   constructor(private http: HttpClient) {}
 
-  getProducts() {
-    return this.http.get("/assets/MOCK_DATA.json");
+  async getProducts() {
+    this.products = await this.http.get("assets/MOCK_DATA.json").toPromise();
   }
-  getProductById(prodId) {
-    return this.http.get(`assets/MOCK_DATA.json/:${prodId}`);
+
+  async getProductById(id) {
+    this.products = await this.http.get("assets/MOCK_DATA.json").toPromise();
+    return this.products.find(item => item.id === id);
   }
 }
