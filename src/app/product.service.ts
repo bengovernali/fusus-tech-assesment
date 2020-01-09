@@ -12,6 +12,7 @@ export class ProductService {
 
   async getProducts() {
     this.products = await this.http.get("assets/MOCK_DATA.json").toPromise();
+    return this.products;
   }
 
   async getProductById(id) {
