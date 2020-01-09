@@ -1,0 +1,21 @@
+<h2>DVDs</h2>
+
+<mat-paginator
+  [length]="length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="pageEvent = $event"
+></mat-paginator>
+
+<div class="container">
+  <mat-card class="dvd" *ngFor="let product of products | async">
+    <a [title]="product.title" [routerLink]="['/products', product.id]"
+      ><img
+        mat-card-image
+        src="{{ product.image_url.replace('x.png', '200x300') }}"
+        alt="{{ product.title }}"/></a
+    ><mat-card-title>{{ product.title }}</mat-card-title>
+
+    <mat-card-subtitle>Price: {{ product.price | currency }}</mat-card-subtitle>
+  </mat-card>
+</div>

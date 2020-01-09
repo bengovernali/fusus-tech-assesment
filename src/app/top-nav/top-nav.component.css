@@ -1,9 +1,15 @@
+.top-nav {
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
+}
+
 .container {
   padding: 0 2.5vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.214);
+  background-color: lightgray;
 }
 
 h1 {
