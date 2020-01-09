@@ -10,6 +10,10 @@ import { ProductService } from "../product.service";
 export class ProductGridComponent implements OnInit {
   products;
 
+  //MatPaginatorInputs
+  pageSize = 20;
+  pageSizeOptions: number[] = [20, 50, 100];
+
   constructor(private productService: ProductService) {}
 
   ngOnInit() {

@@ -11,4 +11,7 @@ export class ProductService {
   getProducts() {
     return this.http.get("/assets/MOCK_DATA.json");
   }
+  getProductById(prodId) {
+    return this.http.get(`assets/MOCK_DATA.json/:${prodId}`);
+  }
 }
