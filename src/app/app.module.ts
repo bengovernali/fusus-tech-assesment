@@ -9,7 +9,8 @@ import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { TopNavComponent } from "./top-nav/top-nav.component";
 import { ProductGridComponent } from "./product-grid/product-grid.component";
 
-import { MatButtonModule } from "@angular/material/";
+import { MatButtonModule } from "@angular/material";
+import { MatCardModule } from "@angular/material";
 
 @NgModule({
   declarations: [AppComponent, TopNavComponent, ProductGridComponent],
@@ -17,6 +18,7 @@ import { MatButtonModule } from "@angular/material/";
     BrowserModule,
     NoopAnimationsModule,
     MatButtonModule,
+    MatCardModule,
     HttpClientModule,
     RouterModule.forRoot([{ path: "", component: ProductGridComponent }])
   ],

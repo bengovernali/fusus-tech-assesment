@@ -1,6 +1,6 @@
 .container {
   padding: 0 2.5vw;
-  width: 100vw;
+  width: 95vw;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -10,11 +10,15 @@
 .dvd {
   padding: 2.5vh 2.5vw;
   text-align: center;
-  max-width: 20vw;
+  width: 200px;
 }
 
 h2 {
   text-align: center;
   padding: 12.5vh 0 4vh 0;
   margin: 0 auto;
+}
+
+img {
+  border: 1px solid black;
 }
