@@ -14,6 +14,8 @@ import { MatButtonModule } from "@angular/material";
 import { MatCardModule } from "@angular/material";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatGridListModule } from "@angular/material/grid-list";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { MatGridListModule } from "@angular/material/grid-list";
     MatCardModule,
     MatPaginatorModule,
     MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
     HttpClientModule,
     RouterModule.forRoot([
       { path: "", component: ProductGridComponent },

@@ -22,3 +22,7 @@ h2 {
 img {
   border: 1px solid black;
 }
+
+.search {
+  padding: 0 2.5vw;
+}
