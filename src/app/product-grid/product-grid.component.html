@@ -7,6 +7,10 @@
   (page)="pageEvent = $event"
 ></mat-paginator>
 
+<mat-form-field class="search">
+  <input matNativeControl placeholder="Search" />
+</mat-form-field>
+
 <div class="container">
   <mat-card class="dvd" *ngFor="let product of products | async">
     <a [title]="product.title" [routerLink]="['/products', product.id]"

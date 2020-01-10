@@ -1,4 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  Directive
+} from "@angular/core";
 
 import { ProductService } from "../product.service";
 
@@ -9,6 +15,8 @@ import { ProductService } from "../product.service";
 })
 export class ProductGridComponent implements OnInit {
   products;
+  search;
+  searching = false;
 
   //MatPaginatorInputs
   pageSize = 20;
@@ -18,5 +26,11 @@ export class ProductGridComponent implements OnInit {
 
   ngOnInit() {
     this.products = this.productService.getProducts();
+  }
+
+  onChange(searchValue: string): void {
+    this.searching = true;
+    console.log(searchValue);
+    this.productService.getSearch(searchValue);
   }
 }

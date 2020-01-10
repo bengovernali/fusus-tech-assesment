@@ -19,4 +19,9 @@ export class ProductService {
     this.products = await this.http.get("assets/MOCK_DATA.json").toPromise();
     return this.products.find(item => item.id === id);
   }
+
+  async getSearch(searchTerm) {
+    this.products = await this.http.get("assets/MOCK_DATA.json").toPromise();
+    return this.products.filter(item => item.title === searchTerm);
+  }
 }
