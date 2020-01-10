@@ -17,12 +17,9 @@ export class CartComponent implements OnInit {
   async ngOnInit() {
     this.items = this.cartService.getItems();
     this.dataSource = this.items;
-    console.log(this.dataSource);
   }
   onRemove(id) {
-    this.cartService.removeItem(id);
-    const index = this.items.findIndex(item => item.id === id);
-    this.items.splice(index, 1);
-    this.dataSource = this.items;
+    this.items = this.cartService.removeItem(id);
+    this.dataSource = [...this.items];
   }
 }
