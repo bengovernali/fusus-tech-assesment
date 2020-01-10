@@ -15,6 +15,7 @@ import { ProductService } from "../product.service";
 })
 export class ProductGridComponent implements OnInit {
   products;
+  searchItems;
 
   //MatPaginatorInputs
   pageSize = 20;
@@ -26,9 +27,10 @@ export class ProductGridComponent implements OnInit {
     this.products = this.productService.getProducts();
   }
 
-  async onEnter(searchValue: string) {
+  onEnter(searchValue: string) {
+    //empty products to clear the page
     this.products = [];
-    console.log(searchValue);
-    await this.productService.getSearch(searchValue);
+    //search for products that include search term
+    this.products = this.productService.getSearch(searchValue);
   }
 }

@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root"
 })
 export class ProductService {
-  products: any = [];
+  products;
   searchItems;
 
   constructor(private http: HttpClient) {}
@@ -16,12 +16,12 @@ export class ProductService {
     return this.products;
   }
 
-  async getProductById(id) {
+  getProductById(id) {
     return this.products.find(item => item.id === id);
   }
 
-  getSearch(searchTerm) {
-    this.searchItems = this.products.filter(item =>
+  async getSearch(searchTerm) {
+    this.searchItems = await this.products.filter(item =>
       item.title.includes(searchTerm)
     );
     return this.searchItems;
