@@ -9,6 +9,7 @@ import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { TopNavComponent } from "./top-nav/top-nav.component";
 import { ProductGridComponent } from "./product-grid/product-grid.component";
 import { ProductDetailsComponent } from "./product-details/product-details.component";
+import { CartComponent } from "./cart/cart.component";
 
 import { MatButtonModule } from "@angular/material";
 import { MatCardModule } from "@angular/material";
@@ -22,7 +23,8 @@ import { MatInputModule } from "@angular/material/input";
     AppComponent,
     TopNavComponent,
     ProductGridComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { MatInputModule } from "@angular/material/input";
     HttpClientModule,
     RouterModule.forRoot([
       { path: "", component: ProductGridComponent },
-      { path: "products/:productId", component: ProductDetailsComponent }
+      { path: "products/:productId", component: ProductDetailsComponent },
+      { path: "cart", component: CartComponent }
     ])
   ],
   providers: [],
