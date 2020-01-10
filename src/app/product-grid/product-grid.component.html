@@ -8,7 +8,12 @@
 ></mat-paginator>
 
 <mat-form-field class="search">
-  <input matNativeControl placeholder="Search" />
+  <input
+    #search
+    matNativeControl
+    placeholder="Search"
+    (keyup.enter)="onEnter(search.value)"
+  />
 </mat-form-field>
 
 <div class="container">

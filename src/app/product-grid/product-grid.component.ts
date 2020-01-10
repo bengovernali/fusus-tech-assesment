@@ -15,8 +15,6 @@ import { ProductService } from "../product.service";
 })
 export class ProductGridComponent implements OnInit {
   products;
-  search;
-  searching = false;
 
   //MatPaginatorInputs
   pageSize = 20;
@@ -28,9 +26,9 @@ export class ProductGridComponent implements OnInit {
     this.products = this.productService.getProducts();
   }
 
-  onChange(searchValue: string): void {
-    this.searching = true;
+  async onEnter(searchValue: string) {
+    this.products = [];
     console.log(searchValue);
-    this.productService.getSearch(searchValue);
+    await this.productService.getSearch(searchValue);
   }
 }
