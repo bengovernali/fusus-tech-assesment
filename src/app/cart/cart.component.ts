@@ -24,6 +24,5 @@ export class CartComponent implements OnInit {
     const index = this.items.findIndex(item => item.id === id);
     this.items.splice(index, 1);
     this.dataSource = this.items;
-    this.table.renderRows();
   }
 }
