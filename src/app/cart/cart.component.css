@@ -1,3 +1,8 @@
 h2 {
-  padding: 12.5vh 0 0 0;
+  padding: 12.5vh 0 0 5%;
+}
+
+table {
+  width: 90%;
+  margin: 0 auto;
 }

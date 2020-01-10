@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 
 import { CartService } from "../cart.service";
 
@@ -10,14 +9,21 @@ import { CartService } from "../cart.service";
 })
 export class CartComponent implements OnInit {
   items;
+  displayedColumns = ["title", "quantity", "cost", "remove"];
+  dataSource: any = [];
 
-  constructor(
-    private route: ActivatedRoute,
-    private cartService: CartService
-  ) {}
+  constructor(private cartService: CartService) {}
 
   async ngOnInit() {
     this.items = this.cartService.getItems();
-    console.log(this.items);
+    this.dataSource = this.items;
+    console.log(this.dataSource);
+  }
+  onRemove(id) {
+    this.cartService.removeItem(id);
+    const index = this.items.findIndex(item => item.id === id);
+    this.items.splice(index, 1);
+    this.dataSource = this.items;
+    this.table.renderRows();
   }
 }
