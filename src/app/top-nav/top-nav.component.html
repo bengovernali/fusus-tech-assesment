@@ -1,9 +1,15 @@
-<div class="container">
-  <a [routerLink]="['/']">
-    <h1>Home</h1>
-  </a>
+<div class="top-nav">
+  <div class="container">
+    <a [routerLink]="['/']">
+      <h1>Home</h1>
+    </a>
 
-  <a mat-raised-button color="primary" [routerLink]="['/cart']" class="checkout"
-    >Checkout</a
-  >
+    <a
+      mat-raised-button
+      color="primary"
+      [routerLink]="['/cart']"
+      class="checkout"
+      >Cart</a
+    >
+  </div>
 </div>
