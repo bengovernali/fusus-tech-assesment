@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  Directive
-} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
 import { ProductService } from "../product.service";
 import { PageEvent } from "@angular/material/paginator";
@@ -19,17 +13,26 @@ export class ProductGridComponent implements OnInit {
   searchItems;
 
   // MatPaginatorInputs
-  pageSize = 50;
-  pageSizeOptions: number[] = [50, 100];
+  pageSize = 20;
+  pageSizeOptions: number[] = [20, 50, 100];
   pageEvent: PageEvent;
   pageIndex: number;
   length: number;
 
   constructor(private productService: ProductService) {}
 
-  ngOnInit() {
+  async ngOnInit() {
+    // call get initial products
+    await this.getInitProducts();
+
+    // set paginator length to length of products
+    this.length = this.products.__zone_symbol__value.length;
+  }
+
+  getInitProducts() {
+    // call getProducts from products service to pull data from json file
     this.products = this.productService.getProducts();
-    console.log(this.products.__zone_symbol__value.length);
+    return this.products;
   }
 
   onEnter(searchValue: string) {
@@ -41,8 +44,6 @@ export class ProductGridComponent implements OnInit {
 
   getPagination(event) {
     console.log(event);
-    this.length = this.products.__zone_symbol__value.length;
-    console.log(this.length);
     this.pageSize = event.pageSize;
   }
 }
