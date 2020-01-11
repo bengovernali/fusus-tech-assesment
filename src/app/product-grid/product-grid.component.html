@@ -30,5 +30,21 @@
     </a>
     <mat-card-title>{{ product.title }}</mat-card-title>
     <mat-card-subtitle>Price: {{ product.price | currency }}</mat-card-subtitle>
+    <mat-form-field
+      class="cart-form"
+      appearance="outline"
+      (ngSubmit)="addToCart($event)"
+    >
+      <mat-label>QTY: </mat-label>
+      <input #quantity name="quantity" matInput placeholder="QTY" />
+    </mat-form-field>
+    <button
+      type="submit"
+      (click)="addToCart(quantity.value, product)"
+      mat-raised-button
+      color="primary"
+    >
+      Add To Cart
+    </button>
   </mat-card>
 </div>
