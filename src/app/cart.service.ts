@@ -11,8 +11,10 @@ export class CartService {
   constructor(private http: HttpClient) {}
 
   addToCart(qty, product) {
-    product.quantity = qty;
-    this.items.push(product);
+    qty = Number(qty);
+    this.items.includes(product)
+      ? (this.items[this.items.indexOf(product)].quantity += qty)
+      : ((product.quantity = qty), this.items.push(product));
   }
 
   getItems() {
