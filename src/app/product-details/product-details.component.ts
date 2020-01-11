@@ -12,6 +12,7 @@ import { CartService } from "../cart.service";
 export class ProductDetailsComponent implements OnInit {
   id;
   data: any = {};
+  url;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,12 +21,18 @@ export class ProductDetailsComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get("productId");
+    //get product id from url, then get product details for that id. update image url
+    this.id = await this.route.snapshot.paramMap.get("productId");
     this.data = await this.productService.getProductById(this.id);
+    this.updateUrl();
   }
 
   addToCart(qty, product) {
     window.alert("Your product(s) have been added to the cart");
     this.cartService.addToCart(qty, product);
+  }
+
+  updateUrl() {
+    this.url = this.data.image_url.replace("x.png", "200x300");
   }
 }

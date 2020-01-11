@@ -13,6 +13,7 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   async getProducts() {
+    //products stay here, searchItems get sent to components
     this.products = await this.http.get("assets/MOCK_DATA.json").toPromise();
     this.searchItems = this.products;
     return this.products;
@@ -24,6 +25,8 @@ export class ProductService {
   }
 
   async getSearch(searchTerm, index, size) {
+    //check to see if searchTerm is truthy, then filter items and send to paginate function
+    //if searchTerm is empty, just sends all products as searchItems
     if (searchTerm) {
       this.searchItems = await this.products.filter(item =>
         item.title.includes(searchTerm)

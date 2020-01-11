@@ -1,5 +1,6 @@
 <h2>Cart</h2>
 
+<!-- Cart Table -->
 <table mat-table [dataSource]="dataSource">
   <!-- Title Column -->
   <ng-container matColumnDef="title">
@@ -64,5 +65,7 @@
 
 <!-- Calculate and display total -->
 
-<h3>Total:</h3>
-<span>{{ sum | currency }}</span>
+<div class="total">
+  <h3>Total:</h3>
+  <span>{{ sum | currency }}</span>
+</div>

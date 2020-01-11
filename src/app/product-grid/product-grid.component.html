@@ -1,5 +1,6 @@
 <h2>DVDs</h2>
 
+<!-- paginator -->
 <mat-paginator
   [length]="length"
   [pageSize]="pageSize"
@@ -7,6 +8,7 @@
   (page)="pageEvent = getPagination($event)"
 ></mat-paginator>
 
+<!-- search bar -->
 <mat-form-field class="search">
   <input
     #search
@@ -16,6 +18,7 @@
   />
 </mat-form-field>
 
+<!-- produce a card for each product to be displayed on the page -->
 <div class="container">
   <mat-card class="dvd" *ngFor="let product of displayProducts | async">
     <a [title]="product.title" [routerLink]="['/products', product.id]">
