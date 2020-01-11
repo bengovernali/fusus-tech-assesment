@@ -28,8 +28,14 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addToCart(qty, product) {
-    window.alert("Your product(s) have been added to the cart");
-    this.cartService.addToCart(qty, product);
+    //check if the qty given is valid, if not let the customer know
+    if (qty < 1 || isNaN(qty)) {
+      window.alert("That is not a valid quantity");
+      return;
+    } else {
+      window.alert("Your product(s) have been added to the cart");
+      this.cartService.addToCart(qty, product);
+    }
   }
 
   updateUrl() {
