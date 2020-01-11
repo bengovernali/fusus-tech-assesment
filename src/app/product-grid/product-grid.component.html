@@ -4,7 +4,7 @@
   [length]="length"
   [pageSize]="pageSize"
   [pageSizeOptions]="pageSizeOptions"
-  (page)="pageEvent = $event"
+  (page)="pageEvent = getPagination($event)"
 ></mat-paginator>
 
 <mat-form-field class="search">

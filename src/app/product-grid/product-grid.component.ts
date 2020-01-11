@@ -7,7 +7,7 @@ import {
 } from "@angular/core";
 
 import { ProductService } from "../product.service";
-import { CartService } from "../cart.service";
+import { PageEvent } from "@angular/material/paginator";
 
 @Component({
   selector: "app-product-grid",
@@ -18,20 +18,31 @@ export class ProductGridComponent implements OnInit {
   products;
   searchItems;
 
-  //MatPaginatorInputs
-  pageSize = 20;
-  pageSizeOptions: number[] = [20, 50, 100];
+  // MatPaginatorInputs
+  pageSize = 50;
+  pageSizeOptions: number[] = [50, 100];
+  pageEvent: PageEvent;
+  pageIndex: number;
+  length: number;
 
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
     this.products = this.productService.getProducts();
+    console.log(this.products.__zone_symbol__value.length);
   }
 
   onEnter(searchValue: string) {
-    //empty products to clear the page
+    // empty products to clear the page
     this.products = [];
-    //search for products that include search term
+    // search for products that include search term
     this.products = this.productService.getSearch(searchValue);
+  }
+
+  getPagination(event) {
+    console.log(event);
+    this.length = this.products.__zone_symbol__value.length;
+    console.log(this.length);
+    this.pageSize = event.pageSize;
   }
 }
