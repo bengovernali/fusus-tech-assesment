@@ -7,6 +7,7 @@ import {
 } from "@angular/core";
 
 import { ProductService } from "../product.service";
+import { CartService } from "../cart.service";
 
 @Component({
   selector: "app-product-grid",

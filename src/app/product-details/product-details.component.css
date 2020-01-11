@@ -11,3 +11,12 @@ mat-card {
 img {
   padding-bottom: 20px;
 }
+
+mat-form-field {
+  text-align: center;
+  margin: 0 auto;
+}
+
+button {
+  margin-top: 10px;
+}
