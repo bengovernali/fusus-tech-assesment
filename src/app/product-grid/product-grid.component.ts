@@ -39,11 +39,11 @@ export class ProductGridComponent implements OnInit {
     return this.products;
   }
 
-  onEnter(searchValue: string) {
+  onSearch(searchValue: string) {
     // empty products to clear the page
-    this.products = [];
+    this.displayedProducts = [];
     // search for products that include search term
-    this.products = this.productService.getSearch(searchValue);
+    this.displayedProducts = this.productService.getSearch(searchValue);
   }
 
   getPagination(event) {
