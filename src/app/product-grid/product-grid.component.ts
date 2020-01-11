@@ -11,7 +11,7 @@ import { PageEvent } from "@angular/material/paginator";
 export class ProductGridComponent implements OnInit {
   products;
   searchItems;
-  displayedProducts;
+  displayProducts;
 
   // MatPaginatorInputs
   pageSize = 20;
@@ -41,9 +41,14 @@ export class ProductGridComponent implements OnInit {
 
   onSearch(searchValue: string) {
     // empty products to clear the page
-    this.displayedProducts = [];
+    this.displayProducts = [];
     // search for products that include search term
-    this.displayedProducts = this.productService.getSearch(searchValue);
+    this.displayProducts = this.productService.getSearch(
+      searchValue,
+      this.pageIndex,
+      this.pageSize
+    );
+    this.identifyProducts();
   }
 
   getPagination(event) {
@@ -55,7 +60,7 @@ export class ProductGridComponent implements OnInit {
 
   identifyProducts() {
     // call paginate from product service
-    this.displayedProducts = this.productService.paginate(
+    this.displayProducts = this.productService.paginate(
       this.pageIndex,
       this.pageSize
     );
