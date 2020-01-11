@@ -11,12 +11,13 @@ import { PageEvent } from "@angular/material/paginator";
 export class ProductGridComponent implements OnInit {
   products;
   searchItems;
+  displayedProducts;
 
   // MatPaginatorInputs
   pageSize = 20;
   pageSizeOptions: number[] = [20, 50, 100];
   pageEvent: PageEvent;
-  pageIndex: number;
+  pageIndex = 0;
   length: number;
 
   constructor(private productService: ProductService) {}
@@ -27,6 +28,9 @@ export class ProductGridComponent implements OnInit {
 
     // set paginator length to length of products
     this.length = this.products.__zone_symbol__value.length;
+
+    // generate products to be displayed
+    this.identifyProducts();
   }
 
   getInitProducts() {
@@ -43,7 +47,17 @@ export class ProductGridComponent implements OnInit {
   }
 
   getPagination(event) {
-    console.log(event);
+    // set new paginator values and identify new products to display
     this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+    this.identifyProducts();
+  }
+
+  identifyProducts() {
+    // call paginate from product service
+    this.displayedProducts = this.productService.paginate(
+      this.pageIndex,
+      this.pageSize
+    );
   }
 }
