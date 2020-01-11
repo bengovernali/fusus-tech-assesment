@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
 import { ProductService } from "../product.service";
+import { CartService } from "../cart.service";
 import { PageEvent } from "@angular/material/paginator";
 
 @Component({
@@ -20,7 +21,10 @@ export class ProductGridComponent implements OnInit {
   pageIndex = 0;
   length: number;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private cartService: CartService
+  ) {}
 
   async ngOnInit() {
     // call get initial products
@@ -69,5 +73,16 @@ export class ProductGridComponent implements OnInit {
 
   updateLength() {
     this.length = this.productService.getLength();
+  }
+
+  addToCart(qty, product) {
+    //check if the qty given is valid, if not let the customer know
+    if (qty < 1 || isNaN(qty)) {
+      window.alert("That is not a valid quantity");
+      return;
+    } else {
+      window.alert("Your product(s) have been added to the cart");
+      this.cartService.addToCart(qty, product);
+    }
   }
 }
