@@ -14,8 +14,8 @@ export class ProductGridComponent implements OnInit {
   displayProducts;
 
   // MatPaginatorInputs
-  pageSize = 20;
-  pageSizeOptions: number[] = [20, 50, 100];
+  pageSize = 50;
+  pageSizeOptions: number[] = [50, 100, 200];
   pageEvent: PageEvent;
   pageIndex = 0;
   length: number;
@@ -49,6 +49,7 @@ export class ProductGridComponent implements OnInit {
       this.pageSize
     );
     this.identifyProducts();
+    this.updateLength();
   }
 
   getPagination(event) {
@@ -64,5 +65,9 @@ export class ProductGridComponent implements OnInit {
       this.pageIndex,
       this.pageSize
     );
+  }
+
+  updateLength() {
+    this.length = this.productService.getLength();
   }
 }

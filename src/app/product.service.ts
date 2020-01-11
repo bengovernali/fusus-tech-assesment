@@ -41,4 +41,8 @@ export class ProductService {
     this.displayProducts = await this.searchItems.slice(start, start + size);
     return this.displayProducts;
   }
+
+  getLength() {
+    return this.searchItems.length;
+  }
 }
