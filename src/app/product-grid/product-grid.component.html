@@ -4,7 +4,7 @@
   [length]="length"
   [pageSize]="pageSize"
   [pageSizeOptions]="pageSizeOptions"
-  (page)="pageEvent = $event"
+  (page)="pageEvent = getPagination($event)"
 ></mat-paginator>
 
 <mat-form-field class="search">
@@ -12,12 +12,12 @@
     #search
     matNativeControl
     placeholder="Search"
-    (keyup)="onEnter(search.value)"
+    (keyup)="onSearch(search.value)"
   />
 </mat-form-field>
 
 <div class="container">
-  <mat-card class="dvd" *ngFor="let product of products | async">
+  <mat-card class="dvd" *ngFor="let product of displayProducts | async">
     <a [title]="product.title" [routerLink]="['/products', product.id]">
       <img
         mat-card-image

@@ -26,3 +26,7 @@ img {
 .search {
   padding: 0 2.5vw;
 }
+
+mat-card {
+  margin: 20px;
+}
