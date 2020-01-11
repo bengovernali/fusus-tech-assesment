@@ -26,9 +26,7 @@ export class CartService {
   }
   editQuantity(id, qty) {
     const index = this.items.findIndex(item => item.id === id);
-    console.log(this.items[index].quantity);
     this.items[index].quantity = qty;
-    console.log(this.items[index].quantity);
     return this.items;
   }
 }

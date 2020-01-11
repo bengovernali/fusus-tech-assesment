@@ -61,3 +61,8 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+
+<!-- Calculate and display total -->
+
+<h3>Total:</h3>
+<span>{{ sum | currency }}</span>
