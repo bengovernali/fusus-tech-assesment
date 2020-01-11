@@ -10,7 +10,29 @@
   <!-- Quantity Column -->
   <ng-container matColumnDef="quantity">
     <th mat-header-cell *matHeaderCellDef>Quantity</th>
-    <td mat-cell *matCellDef="let item">{{ item.quantity }}</td>
+    <td mat-cell *matCellDef="let item">
+      <mat-form-field
+        class="cart-form"
+        appearance="outline"
+        (ngSubmit)="onEdit($event)"
+      >
+        <mat-label>{{ item.quantity }}</mat-label>
+        <input
+          #quantity
+          name="quantity"
+          matInput
+          placeholder="{{ item.quantity }}"
+        />
+      </mat-form-field>
+      <button
+        type="submit"
+        (click)="onEdit(quantity.value, item.id)"
+        mat-raised-button
+        color="primary"
+      >
+        Edit Quantity
+      </button>
+    </td>
   </ng-container>
 
   <!-- Cost Column -->

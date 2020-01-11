@@ -22,4 +22,9 @@ export class CartComponent implements OnInit {
     this.items = this.cartService.removeItem(id);
     this.dataSource = [...this.items];
   }
+  onEdit(quantity, id) {
+    console.log(`Editing item ${id} to quantity of ${quantity}`);
+    this.items = this.cartService.editQuantity(id, quantity);
+    this.dataSource = [...this.items];
+  }
 }
